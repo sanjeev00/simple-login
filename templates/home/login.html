@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+{%  if step %}
+<form method="post" action="login">
+
+     {% csrf_token %}
+    <input type="text" name='phone' placeholder="Phone"><br>
+
+    <br>
+    <button type="submit">Submit</button>
+    <div style="color:red">{{ error }}</div>
+
+</form>
+{% else %}
+<form method="post" action="verifylogin">
+
+     {% csrf_token %}
+    <input type="text" name='otp' placeholder="Enter OTP"><br>
+    <br>
+    <button type="submit">Submit</button>
+    <div style="color:red">{{ error }}</div>
+
+</form>
+{% endif %}
+</body>
+</html>

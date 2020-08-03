@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+
+{%  if  not confirm %}
+    <style>
+    form
+    {
+        padding:30px;
+        margin-top:50px;
+    }
+    input,button
+    {
+        margin:10px 20px;
+    }
+    a{
+        font-size: 25px;
+    }
+</style>
+<form method="post" action="register">
+    <fieldset>
+        <legend>Register</legend>
+     {% csrf_token %}
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="email" name='email' placeholder="email"><br>
+    <input type="text" name='phone' placeholder="Phone"><br>
+
+    <button type="submit">Submit</button>
+    <div style="color:red">{{ error }}</div>
+        </fieldset>
+</form>
+<a href="login">Already registered click Here to login</a>
+{%  else %}
+<h3>Confirm Your details</h3>
+    <form method="post" action="confirm">
+
+     {% csrf_token %}
+    <input type="text" name="name" placeholder="Name" value={{ user.name }}><br>
+
+
+
+<h3>Phone {{ user.phone }} </h3>
+<h3>Email {{ user.email }} </h3>
+<button type="submit">Submit</button>
+
+
+</form>
+{%  endif %}
+</body>
+</html>

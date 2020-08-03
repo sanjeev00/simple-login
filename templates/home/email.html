@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email verification</title>
+</head>
+<body>
+<h2>An email has been sent to your email</h2>
+<div>
+    <h4>{{ email }}</h4>
+    verify to proceed<br>
+    <form method="post" action="confirmEmail">
+        {% csrf_token %}
+
+        <input type="text" name="otp">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p style="color:red">{{ error }}</p>
+</div>
+</body>
+</html>

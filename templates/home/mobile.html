@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile No confirmation</title>
+</head>
+<body>
+<h2>An OTP has been sent to your phone</h2>
+<div>
+    <h4>{{ phone }}</h4>
+    verify to proceed<br>
+    <form method="post" action="confirmPhone">
+        {% csrf_token %}
+
+        <input type="text" name="otp">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p style="color:red">{{ error }}</p>
+</div>
+</body>
+</html>
