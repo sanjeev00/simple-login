@@ -29,7 +29,7 @@ SECRET_KEY = 'snjcyhc7^dgk)=#m&cfk!o=nb1nt6r3hp!mf1ce5b2(^#bsv7s'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['simple-dashb.herokuapp.com']
 
 
 # Application definition
